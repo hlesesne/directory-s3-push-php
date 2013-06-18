@@ -44,7 +44,7 @@ if ($filecount > 0) {
 	$result = $s3::PutObject($max_modified, $bucketName, $keyTimeStamp, $fileAcl);
 	echo "Processed: ".$filecount." file(s). Updated Max Modified Time to: ".$max_modified." at ".$rundate." UTC.\n"; }
 
-// TODO: need to update and credit this function.
+// ref: http://php.net/manual/en/function.filemtime.php
 function directory_tree($address,$comparedate,&$max_modified,$sourceDir,$bucketName, $s3,$fileAcl=S3::ACL_PUBLIC_READ,$meta_headers=null,$http_headers=null,&$filecount=0) { 
 	@$dir = opendir($address); 
 	if(!$dir){ return 0; } 
