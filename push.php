@@ -1,5 +1,5 @@
 <?
-#error_reporting(E_ERROR | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 require "S3.php";
 date_default_timezone_set('UTC');
 
