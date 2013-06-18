@@ -1,4 +1,4 @@
-directory-s3-mirror-php
+directory-s3-push-php
 =======================
 
 Simple script to copy the contents of wp-content/uploads (or any other directory) to an S3 directory when they change.
