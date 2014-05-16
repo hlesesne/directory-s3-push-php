@@ -10,3 +10,13 @@ Set AWS Key/Secret and the name of the destination AWS S3 bucket then run:
 $ php push.php
 
 I've setup a cron job that runs once a minute and gets all newly modified or created files and pushes them up to s3, then updates the timestamp of the most recently updated file.
+
+.htaccess modifications
+=======================
+
+While this script moves the files, it is often necessary to redirect requests for files after they have been moved. The following .htaccess modification (placed in the directory configured) should suffice.
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://s3.amazonaws.com/yourbucketname/$1 [QSA,L]
+
