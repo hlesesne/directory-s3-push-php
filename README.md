@@ -16,7 +16,8 @@ I've setup a cron job that runs once a minute and gets all newly modified or cre
 
 While this script moves the files, it is often necessary to redirect requests for files after they have been moved. The following .htaccess modification (placed in the directory configured) should suffice.
 
+```
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ http://s3.amazonaws.com/yourbucketname/$1 [QSA,L]
-
+```
